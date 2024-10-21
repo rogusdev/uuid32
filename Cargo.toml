@@ -1,0 +1,35 @@
+[package]
+name = "uuid32"
+version = "1.0.0"
+edition = "2021"
+
+license = "MIT"
+description = "Uuids formatted as Strings in Crockford base32 for easier to read + copy urls, plus db"
+repository = "https://github.com/rogusdev/uuid32"
+keywords = ["base32", "ids", "identifiers", "uuid"]
+categories = ["encoding"]
+
+exclude = [
+    "d",
+    "t",
+]
+
+[features]
+default = []
+postgres = ["dep:tokio-postgres", "dep:bytes", "dep:postgres-protocol", "dep:postgres-types"]
+
+[dependencies]
+fast32 = { version = "1.0.3", features = ["uuid"] }
+serde = { version = "1.0.210", features = ["derive"] }
+uuid = { version = "1.11.0", features = ["serde"] }
+
+bytes = { version = "1.8.0", optional = true }
+postgres-protocol = { version = "0.6.7", optional = true }
+postgres-types = { version = "0.2.8", features = ["derive"], optional = true }
+tokio-postgres = { version = "0.7.12", features = ["with-uuid-1"], optional = true }
+
+# https://users.rust-lang.org/t/how-to-document-optional-features-in-api-docs/64577/3
+# https://stackoverflow.com/questions/61417452/how-to-get-a-feature-requirement-tag-in-the-documentation-generated-by-cargo-do
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
