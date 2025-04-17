@@ -8,4 +8,4 @@ Just use `Uuid32` anywhere you might otherwise use `Uuid` and it will pass the e
 
 In libraries and applications that use Uuid32s for talking to a postgres database, add feature `postgres`.
 
-Linking the [crate](https://crates.io/crates/uuid32) and the [documentation](https://docs.rs/fast32/latest/uuid32/) for reference.
+Linking the [crate](https://crates.io/crates/uuid32) and the [documentation](https://docs.rs/uuid32/latest/uuid32/) for reference.
